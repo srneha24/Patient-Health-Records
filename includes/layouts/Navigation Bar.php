@@ -9,7 +9,7 @@
 <nav class="navbar navbar-expand navbar-dark fixed-top">
     <div class="container">
         <div class="navbar-header mt-2 pt-5">
-            <img id="logo-img" class="navbar-brand rounded-circle" src="./image/Logo.png" alt="Patient Health Records">
+            <img id="logo-img" class="navbar-brand rounded-circle" src="./image/System/Logo.png" alt="Patient Health Records">
         </div>
 
         <div class="d-flex justify-content-center">

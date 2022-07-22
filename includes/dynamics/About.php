@@ -7,7 +7,7 @@
         
             <div class="card-body text-center">
             
-                <img src="./image/Devs/18191103082.jpg" class="rounded-circle dev-img">
+                <img src="./image/Members/18191103082.jpg" class="rounded-circle dev-img">
                 <hr>
                 <h5 class="card-text font-weight-bold">Saiyera Rehmina</h5>
                 <br><br>
@@ -25,7 +25,7 @@
         
             <div class="card-body text-center">
             
-            <img src="./image/Devs/18191103089.jpeg" class="rounded-circle dev-img">
+            <img src="./image/Members/18191103089.jpeg" class="rounded-circle dev-img">
             <hr>
                 <h5 class="card-text font-weight-bold">Humaira Gulshan Putul</h5>
                 <br>
@@ -43,7 +43,7 @@
         
             <div class="card-body text-center">
             
-            <img src="./image/Devs/18191103090.jpg" class="rounded-circle dev-img">
+            <img src="./image/Members/18191103090.jpg" class="rounded-circle dev-img">
             <hr>
                 <h5 class="card-text font-weight-bold">Fariea Tabassum Mow</h5>
                 <br><br>
@@ -61,7 +61,7 @@
         
             <div class="card-body text-center">
             
-            <img src="./image/Devs/17181103124.jpg" class="rounded-circle dev-img">
+            <img src="./image/Members/17181103124.jpg" class="rounded-circle dev-img">
             <hr>
                 <h5 class="card-text font-weight-bold">Shornali Akhi Shorna</h5>
                 <br><br>
