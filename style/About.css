@@ -1,0 +1,17 @@
+.card-bg {
+    background-color: #1e2d94;
+    color: white;
+}
+
+.dev-img {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #b53855;
+}
+
+#about-heading {
+    text-align: center;
+    background-color: #1e2d94;
+    margin-bottom: 15px;
+    color: white;
+}

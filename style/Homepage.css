@@ -1,0 +1,30 @@
+#home-head-img {
+    background-image: url(./../image/Homepage\ Background.jpg);
+    height: 100%;
+}
+
+.vert-align-text {
+    height: 200px;
+}
+
+#page-title {    
+    font-weight: bold;
+    color: #b53855;
+    font-size: 100px;
+    text-shadow: 8px 8px #1e2d94;
+    line-height: 400px;
+}
+
+#search-bar {
+    margin-top: 80px;
+    line-height: 30px;
+}
+
+#search {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #b53855;
+    padding: 20px;
+    outline-style: solid;
+    outline-color: #1e2d94;
+    outline-width: medium;
+}

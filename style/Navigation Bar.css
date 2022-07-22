@@ -1,0 +1,49 @@
+nav {
+    max-height: 85px;
+    background-color: #1e2d94;
+}
+
+#logo-img {
+    width: 130px;
+    height: 130px;
+}
+
+.sys-colour-1 {
+    background-color:#b53855;
+}
+
+.sys-colour-2 {
+    background-color: #1e2d94;
+}
+
+.top-margin {    
+    margin-top: 150px;
+}
+
+.title-header {
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.page-title-margin {    
+    margin-bottom: 15px;
+}
+
+.box-dsgn {
+    background-color: #1e2d94;
+    padding: 40px;
+}
+
+.title-font {
+    font-size: 30px;
+}
+
+.sub-title-font {
+    font-size: 20px;
+}
+
+.reduce-margin {
+    margin-left: -15px;
+    margin-right: -15px;
+}

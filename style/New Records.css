@@ -1,0 +1,19 @@
+#new-patient {
+    float: left;
+    visibility: hidden;
+    margin-top: -100px;
+}
+
+#search-patient {
+    visibility: visible;
+}
+
+#ptn-search-submit {
+    float: right;
+    margin-top: 20px;
+}
+
+#patient-search-result {
+    float: left;
+    margin-top: 70px;
+}
