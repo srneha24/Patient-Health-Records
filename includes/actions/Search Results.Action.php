@@ -2,26 +2,41 @@
 
 require_once("Database.php");
 
-if (isset($_POST["search-submit"]) == "search") {
+if (isset($_POST["search-submit"]) == "search" || isset($_POST["ptn-search-submit"]) == "ptn-search") {
     session_start();
 
     $nameSearch = $_POST["nameSearch"];
 
-    $query = "SELECT name FROM patient WHERE name LIKE '%$nameSearch%'";
+    $query = "SELECT name, ptn_id FROM patient WHERE name LIKE '%$nameSearch%'";
     $result = mysqli_query($dbCon, $query);
-    $_SESSION["resultCount"] = mysqli_num_rows($result);
+    $resultCount = mysqli_num_rows($result);
 
-    if ($_SESSION["resultCount"] > 0) {
+    if (isset($_POST["search-submit"])) {
+        $_SESSION["resultCount"] = $resultCount;
+    }
+    else {
+        $_SESSION["resultCountNew"] = $resultCount;
+    }
+
+    if ($resultCount > 0) {
         $names = array();
+        $ptn_id = array();
 
         while ($row = mysqli_fetch_assoc($result)) {
             $names[] = $row["name"];
+            $ptn_id[] = $row["ptn_id"];
         }
 
         $_SESSION["names"] = $names;
+        $_SESSION["ptn_id"] = $ptn_id;
     }
 
-    header('Location: ' . BASE . "?page=search");
+    if (isset($_POST["search-submit"])) {
+        header('Location: ' . BASE . "?page=search");
+    }
+    else {
+        header("Refresh:0; url=". BASE . "?page=new&&search=true");
+    }
 }
 
 if (isset($_GET['name'])) {

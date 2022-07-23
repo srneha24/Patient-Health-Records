@@ -1,8 +1,16 @@
+<?php
+
+require_once("./includes/actions/New Records.Action.php");
+
+?>
+
 <link rel="stylesheet" href="./style/New Records.css">
 <script type = "text/javascript" src = "./scripts/New Records.js"> </script>
 
+<form id="search-patient-form" role="form" action="./includes/actions/Search Results.Action.php" method="post"> </form>
+
 <div class="container rounded text-white box-dsgn mb-3">
-    <form role="form" action="." method="post">
+    <form id="new-record" role="form" action="" method="post">
         <div class="row">
             <div class="col-4">
                 <p class="title-header sys-colour-1 sub-title-font">Patient Information</p>
@@ -21,29 +29,51 @@
                 <div class="form-group row">
                     <label class="col-3 col-form-label font-weight-bold">Name</label>
                     <div class="col-9">
-                        <input type="text" class="form-control" name="name" required>
+                        <input type="text" class="form-control" name="nameSearch" form="search-patient-form" required>
                     </div>
                 </div>
 
                 <div id="search-patient">
                     <div class="form-group row" id="ptn-search-submit">
-                        <button class="btn sys-colour-1 text-white" type="submit" name="ptn-search-submit">
+                        <button class="btn sys-colour-1 text-white" type="submit" form="search-patient-form" name="ptn-search-submit" value="ptn-search">
                             Search Patient
                         </button>
                     </div>
 
-                    <div class="form-group" id="patient-search-result">
-                        <label class="row col-form-label font-weight-bold">Patient Results</label>
-                        <div class="row">
-                            <select name="patient-list" class="custom-select">
-                                <option value="Name 1">Name 1</option>
-                                <option value="Name 2">Name 2</option>
-                            </select>
-                        </div>
-                    </div>
+                    <?php
+                        if (isset($_GET['search']) == 'true') {
+                            if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] > 0) {
+                    ?>
+                                <div class="form-group" id="patient-search-result">
+                                    <label class="row col-form-label font-weight-bold">Patient Results</label>
+                                    <div class="row">
+                                        <select name="patient-list" class="custom-select">
+                    <?php
+                                    for($i=0; $i<$_SESSION["resultCountNew"]; $i++) {                        
+                        ?>                            
+                                            <option value="<?php echo $_SESSION['names'][$i] . "+" .$_SESSION['ptn_id'][$i];?>"><?php echo $_SESSION['names'][$i];?></option>
+                    <?php
+                                }
+                    ?>
+                                        </select>
+                                    </div>
+                                </div>
+                    <?php
+                            }
+
+                            elseif (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) {
+                                echo "<div class='row' id='no-res'><i>No Results Found</i></div>";
+                            }
+                        }
+                        else {
+                            unset($_SESSION["resultCountNew"]);
+                        }
+                    ?>
                 </div>
 
                 <div id="new-patient">
+                    <br><br><br>
+                    
                     <div class="form-group row">
                         <label class="col-3 col-form-label font-weight-bold">Date of Birth</label>
                         <div class="col-9">
@@ -75,7 +105,7 @@
                     <div class="form-group row">
                         <label class="col-3 col-form-label font-weight-bold">Address</label>
                         <div class="col-9">
-                            <textarea name="address" cols = "30" rows = "2" class="form-control" required></textarea>
+                            <textarea name="address" cols = "30" rows = "2" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
@@ -216,7 +246,7 @@
         </div>
 
         <div class="form-group row" style="float: right;">
-            <button class="btn sys-colour-1 text-white" type="submit" name="new-submit" >Save Record</button>
+            <button class="btn sys-colour-1 text-white" type="submit" form="new-record" name="new-submit" value="new">Save Record</button>
         </div>
 
         <br>
