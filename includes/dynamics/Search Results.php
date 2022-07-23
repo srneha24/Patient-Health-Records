@@ -83,11 +83,11 @@ require_once("./includes/actions/Search Results.Action.php");
                                 <label class="col-3 col-form-label font-weight-bold">Gender</label>
                                 <div class="col-9">
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="gender1" name="gender" value="F" <?php if($ptnInfo->gender == 'F') { echo "checked"; } ?>>
+                                        <input type="radio" class="custom-control-input" id="gender1" name="gender" value="F" <?php if($ptnInfo->gender == 'F') { echo "checked"; } ?> required>
                                         <label class="custom-control-label" for="gender1">Female</label>
                                     </div>
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="gender2" name="gender" value="M" <?php if($ptnInfo->gender == 'M') { echo "checked"; } ?>>
+                                        <input type="radio" class="custom-control-input" id="gender2" name="gender" value="M" <?php if($ptnInfo->gender == 'M') { echo "checked"; } ?> required>
                                         <label class="custom-control-label" for="gender2">Male</label>
                                     </div>
                                 </div>
@@ -103,7 +103,7 @@ require_once("./includes/actions/Search Results.Action.php");
                             <div class="form-group row">
                                 <label class="col-3 col-form-label font-weight-bold">Address</label>
                                 <div class="col-9">
-                                    <textarea name="address" cols = "30" rows = "2" class="form-control" required><?php echo $ptnInfo->address; ?></textarea>
+                                    <textarea name="address" cols = "30" rows = "2" class="form-control"><?php echo $ptnInfo->address; ?></textarea>
                                 </div>
                             </div>
 

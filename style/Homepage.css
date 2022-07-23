@@ -28,3 +28,8 @@
     outline-color: #1e2d94;
     outline-width: medium;
 }
+
+#insert {
+    margin-bottom: -40px;
+    margin-left: 500px;
+}

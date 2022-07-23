@@ -58,6 +58,10 @@ if (isset($_POST["update-ptn-submit"]) == "update-ptn") {
     $gender = $_POST["gender"];
     $address = $_POST["address"];
 
+    if ($address == null) {
+        $address = "";
+    }
+
     $query = "UPDATE `patient` SET `name`='$name',`dob`='$dob',`phone`='$phone',`gender`='$gender',`address`='$address' WHERE ptn_id='$id'";
     $result = @mysqli_query($dbCon, $query) or die("Error in Update: ".mysqli_error($dbCon));
 
