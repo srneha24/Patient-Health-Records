@@ -15,7 +15,7 @@
             echo '<p class="title-header sys-colour-2 page-title-margin title-font">SEARCH RESULTS</p>';
         }
 
-        elseif ($page === "record") {
+        elseif ($page === "record" || $page === "recordUpdate") {
             echo '<p class="title-header sys-colour-2 page-title-margin title-font">PATIENT RECORDS</p>';
         }
 

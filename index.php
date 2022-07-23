@@ -46,6 +46,11 @@
         require_once "includes/layouts/Page Title.php";
         require_once "includes/dynamics/Patient Records.php";
     }
+
+    elseif ($page === "recordUpdate") {
+        require_once "includes/layouts/Page Title.php";
+        require_once "includes/dynamics/Update Records.php";
+    }
     
     ?>
 </body>

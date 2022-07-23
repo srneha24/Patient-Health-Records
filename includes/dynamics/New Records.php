@@ -165,8 +165,7 @@
                     <label class="col-3 col-form-label font-weight-bold">Blood Group</label>
                     <div class="col-9">
                         <div class="row">
-                            <select name="blood" class="custom-select">
-                                <option selected>Select Blood Group</option>
+                            <select name="blood_group" class="custom-select">
                                 <option value="A+">A+</option>
                                 <option value="A-">A-</option>
                                 <option value="B+">B+</option>
@@ -200,11 +199,11 @@
                     <div class="col-9">
                         <div class="row">
                             <div class="col-5">
-                                <input type="number" step="0.01" class="form-control" name="blood_pres_top" required>
+                                <input type="number" step="0.01" class="form-control" name="blood_pressure_top" required>
                             </div>
-                            <div class="col-1 reduce-margin">/</div>
+                            <div class="col-1 reduce-margin d-flex justify-content-center">/</div>
                             <div class="col-5">
-                                <input type="number" step="0.01" class="form-control" name="blood_pres_bottom" required>
+                                <input type="number" step="0.01" class="form-control" name="blood_pressure_bottom" required>
                             </div>
 
                             <div class="col-1">
@@ -217,7 +216,7 @@
         </div>
 
         <div class="form-group row" style="float: right;">
-            <button class="btn sys-colour-1 text-white" type="submit" name="new-submit" id="save">Save Record</button>
+            <button class="btn sys-colour-1 text-white" type="submit" name="new-submit" >Save Record</button>
         </div>
 
         <br>

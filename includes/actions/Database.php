@@ -7,7 +7,7 @@ $pwd = '';
 	
 $dbCon = mysqli_connect($host, $userName, $pwd, $dbName);
 
-@define("BASE", "http://localhost/Patient Health Records/includes/dynamics/Homepage.php");
+@define("BASE", "http://localhost/Patient Health Records/");
 
 
 
