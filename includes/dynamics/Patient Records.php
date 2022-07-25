@@ -77,7 +77,7 @@ require_once("./includes/actions/Patient Records.Action.php");
                             <b>Phone Number:</b>&nbsp;<i><?php echo $_SESSION['ptnInfo']->phone; ?></i>
                         </div>
                         <div class="col-6">
-                            <b>Address:</b>&nbsp;<i><?php echo $_SESSION['ptnInfo']->address; ?></i>
+                            <b>Address:</b>&nbsp;<address><?php echo $_SESSION['ptnInfo']->address; ?></address>
                         </div>
                     </div>
                 </div>
@@ -103,15 +103,11 @@ require_once("./includes/actions/Patient Records.Action.php");
                     <div class="row box-dsgn mb-3">
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-6">
                                     <b>Date:</b>&nbsp;<?php echo date_format(date_create($record->rec_date),"d M Y"); ?>
                                 </div>
 
-                                <div class="col-4 font-italic">
-                                    <a class="sys-colour-1 link" href="#">Download Record</a>
-                                </div>
-
-                                <div class="col-4 font-italic" style="float: right;">
+                                <div class="col-6 font-italic" id="update-button">
                                     <a class="sys-colour-1 link" href="?page=recordUpdate">Update/Delete Record</a>
                                 </div>
                             </div>

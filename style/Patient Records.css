@@ -7,3 +7,7 @@ a {
     font-size: 17px;
     padding: 8px;
 }
+
+#update-button {
+    float: right;
+}
