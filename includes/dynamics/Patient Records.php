@@ -77,7 +77,7 @@ require_once("./includes/actions/Patient Records.Action.php");
                             <b>Phone Number:</b>&nbsp;<i><?php echo $_SESSION['ptnInfo']->phone; ?></i>
                         </div>
                         <div class="col-6">
-                            <b>Address:</b>&nbsp;<address><?php echo $_SESSION['ptnInfo']->address; ?></address>
+                            <b>Address:</b>&nbsp;<i><?php echo $_SESSION['ptnInfo']->address; ?></i>
                         </div>
                     </div>
                 </div>
