@@ -2,6 +2,8 @@
 
 require_once("./includes/actions/New Records.Action.php");
 
+$init = 0;
+
 ?>
 
 <link rel="stylesheet" href="./style/New Records.css">
@@ -30,7 +32,7 @@ require_once("./includes/actions/New Records.Action.php");
                     <label class="col-3 col-form-label font-weight-bold">Name</label>
                     <div class="col-9">
                         <input type="text" class="form-control" id="nameSearch" name="nameSearch" form="search-patient-form" required>
-                        <input type="text" class="form-control" id="name" name="name" form="new-record" <?php if (!isset($_GET['search'])) { echo "required"; } ?>>
+                        <input type="text" class="form-control" id="name" name="name" form="new-record">
                     </div>
                 </div>
 
@@ -48,7 +50,7 @@ require_once("./includes/actions/New Records.Action.php");
                                 <div class="form-group" id="patient-search-result">
                                     <label class="row col-form-label font-weight-bold">Patient Results</label>
                                     <div class="row">
-                                        <select name="patient-list" class="custom-select" <?php if (isset($_GET['search'])) { echo "required"; } ?>>
+                                        <select name="patient-list" id="patient-list" class="custom-select" <?php if (isset($_GET['search'])) { echo "required"; } ?>>
                     <?php
                                     for($i=0; $i<$_SESSION["resultCountNew"]; $i++) {                        
                         ?>                            
@@ -60,14 +62,20 @@ require_once("./includes/actions/New Records.Action.php");
                                     </div>
                                 </div>
                     <?php
+                                $init = 1;
+
                             }
 
                             elseif (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) {
                                 echo "<div class='row' id='no-res'><i>No Results Found</i></div>";
+
+                                $init = 0;
                             }
                         }
                         else {
                             unset($_SESSION["resultCountNew"]);
+
+                            $init = 0;
                         }
                     ?>
                 </div>
@@ -78,7 +86,7 @@ require_once("./includes/actions/New Records.Action.php");
                     <div class="form-group row">
                         <label class="col-3 col-form-label font-weight-bold">Date of Birth</label>
                         <div class="col-9">
-                            <input type="date" class="form-control" name="dob" <?php if (!isset($_GET['search'])) { echo "required"; } ?>>
+                            <input type="date" class="form-control" name="dob" id="dob">
                         </div>
                     </div>
 
@@ -86,11 +94,11 @@ require_once("./includes/actions/New Records.Action.php");
                         <label class="col-3 col-form-label font-weight-bold">Gender</label>
                         <div class="col-9">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="gender1" name="gender" value="F" <?php if (!isset($_GET['search'])) { echo "required"; } ?>>
+                                <input type="radio" class="custom-control-input" id="gender1" name="gender" value="F">
                                 <label class="custom-control-label" for="gender1">Female</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" id="gender2" name="gender" value="M" <?php if (!isset($_GET['search'])) { echo "required"; } ?>>
+                                <input type="radio" class="custom-control-input" id="gender2" name="gender" value="M">
                                 <label class="custom-control-label" for="gender2">Male</label>
                             </div>
                         </div>
@@ -99,7 +107,7 @@ require_once("./includes/actions/New Records.Action.php");
                     <div class="form-group row">
                         <label class="col-3 col-form-label font-weight-bold">Phone Number</label>
                         <div class="col-9">
-                            <input type="text" class="form-control" name="phone" pattern="[0-9]{11}" <?php if (!isset($_GET['search'])) { echo "required"; } ?>>
+                            <input type="text" class="form-control" name="phone" id="phone" pattern="[0-9]{11}">
                         </div>
                     </div>
 
@@ -122,7 +130,7 @@ require_once("./includes/actions/New Records.Action.php");
                     <div class="col-9">
                         <div class="row">
                             <div class="col-11">
-                                <input type="number" step="0.01" class="form-control" name="height" required <?php if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) { echo "disabled"; } ?>>
+                                <input type="number" step="0.01" class="form-control" name="height" id="height" required <?php if ($init == 0 || (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0)) { echo "disabled"; } ?>>
                             </div>
 
                             <div class="col-1">
@@ -137,7 +145,7 @@ require_once("./includes/actions/New Records.Action.php");
                     <div class="col-9">
                         <div class="row">
                             <div class="col-11">
-                                <input type="number" step="0.01" class="form-control" name="weight" required <?php if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) { echo "disabled"; } ?>>
+                                <input type="number" step="0.01" class="form-control" name="weight" id="weight" required <?php if ($init == 0 || (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0)) { echo "disabled"; } ?>>
                             </div>
 
                             <div class="col-1">
@@ -152,7 +160,7 @@ require_once("./includes/actions/New Records.Action.php");
                     <div class="col-9">
                         <div class="row">
                             <div class="col-11">
-                                <input type="number" step="0.01" class="form-control" name="heart_rate" required <?php if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) { echo "disabled"; } ?>>
+                                <input type="number" step="0.01" class="form-control" name="heart_rate" id="heart_rate" required <?php if ($init == 0 || (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0)) { echo "disabled"; } ?>>
                             </div>
 
                             <div class="col-1">
@@ -167,7 +175,7 @@ require_once("./includes/actions/New Records.Action.php");
                     <div class="col-9">
                         <div class="row">
                             <div class="col-11">
-                                <input type="number" step="0.01" class="form-control" name="pulse_rate" required <?php if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) { echo "disabled"; } ?>>
+                                <input type="number" step="0.01" class="form-control" name="pulse_rate" id="pulse_rate" required <?php if ($init == 0 || (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0)) { echo "disabled"; } ?>>
                             </div>
 
                             <div class="col-1">
@@ -182,7 +190,7 @@ require_once("./includes/actions/New Records.Action.php");
                     <div class="col-9">
                         <div class="row">
                             <div class="col-11">
-                                <input type="number" step="0.01" class="form-control" name="temperature" required <?php if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) { echo "disabled"; } ?>>
+                                <input type="number" step="0.01" class="form-control" name="temperature" id="temparature" required <?php if ($init == 0 || (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0)) { echo "disabled"; } ?>>
                             </div>
 
                             <div class="col-1">
@@ -196,7 +204,7 @@ require_once("./includes/actions/New Records.Action.php");
                     <label class="col-3 col-form-label font-weight-bold">Blood Group</label>
                     <div class="col-9">
                         <div class="row">
-                            <select name="blood_group" class="custom-select" required <?php if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) { echo "disabled"; } ?>>
+                            <select name="blood_group" id="blood_group" class="custom-select" required <?php if ($init == 0 || (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0)) { echo "disabled"; } ?>>
                                 <option value="A+">A+</option>
                                 <option value="A-">A-</option>
                                 <option value="B+">B+</option>
@@ -215,7 +223,7 @@ require_once("./includes/actions/New Records.Action.php");
                     <div class="col-9">
                         <div class="row">
                             <div class="col-11">
-                                <input type="number" step="0.01" class="form-control" name="sugar_level" required <?php if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) { echo "disabled"; } ?>>
+                                <input type="number" step="0.01" class="form-control" name="sugar_level" id="sugar_level" required <?php if ($init == 0 || (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0)) { echo "disabled"; } ?>>
                             </div>
 
                             <div class="col-1">
@@ -230,11 +238,11 @@ require_once("./includes/actions/New Records.Action.php");
                     <div class="col-9">
                         <div class="row">
                             <div class="col-5">
-                                <input type="number" step="0.01" class="form-control" name="blood_pressure_top" required <?php if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) { echo "disabled"; } ?>>
+                                <input type="number" step="0.01" class="form-control" name="blood_pressure_top" id="blood_pressure_top" required <?php if ($init == 0 || (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0)) { echo "disabled"; } ?>>
                             </div>
                             <div class="col-1 reduce-margin d-flex justify-content-center">/</div>
                             <div class="col-5">
-                                <input type="number" step="0.01" class="form-control" name="blood_pressure_bottom" required <?php if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) { echo "disabled"; } ?>>
+                                <input type="number" step="0.01" class="form-control" name="blood_pressure_bottom" id="blood_pressure_bottom" required <?php if ($init == 0 || (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0)) { echo "disabled"; } ?>>
                             </div>
 
                             <div class="col-1">
@@ -247,7 +255,7 @@ require_once("./includes/actions/New Records.Action.php");
         </div>
 
         <div class="form-group row" style="float: right;">
-            <button class="btn sys-colour-1 text-white" type="submit" form="new-record" name="new-submit" value="new-record" <?php if (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0) { echo "disabled"; } ?>>
+            <button class="btn sys-colour-1 text-white" type="submit" form="new-record" name="new-submit" id="new-submit" value="new-record" <?php if ($init == 0 || (isset($_SESSION["resultCountNew"]) && $_SESSION["resultCountNew"] <= 0)) { echo "disabled"; } ?>>
                 Save Record
             </button>
         </div>
