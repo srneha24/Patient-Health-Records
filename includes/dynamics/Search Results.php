@@ -20,7 +20,7 @@ require_once("./includes/actions/Search Results.Action.php");
                 <?php
                             for($i=0; $i<$_SESSION["resultCount"]; $i++) {                        
                 ?>                            
-                                <li><a href="?page=search&&name=<?php echo $_SESSION['names'][$i];?>"><?php echo $_SESSION['names'][$i];?></a></li>
+                                <li><a href="?page=search&&ptn_id=<?php echo $_SESSION['ptn_id'][$i];?>"><?php echo $_SESSION['names'][$i];?></a></li>
                 <?php
                         }
                 ?>
@@ -42,7 +42,7 @@ require_once("./includes/actions/Search Results.Action.php");
             <hr>
 
             <?php
-                if (isset($_GET['name']) && @$resultCount > 0) {
+                if (isset($_GET['ptn_id']) && @$resultCount > 0) {
             ?>
                     <form role="form" action="" method="post">
                         <div class="box-dsgn mb-3">

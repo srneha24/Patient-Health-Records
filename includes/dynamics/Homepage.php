@@ -19,7 +19,7 @@
         <div id="search-bar" class="vert-align-text">
             <form role="form" action="./includes/actions/Search Results.Action.php" method="post">
                 <input id="search" type="text" name="nameSearch" size=100 placeholder="Search Patients" required>
-                <button type="submit" name="search-submit" class="btn sys-colour-1">
+                <button type="submit" name="search-submit" class="btn sys-colour-1" value="search">
                     <span class="material-icons" style="color=#1e2d94">search</span> 
                 </button>
             </form>

@@ -39,10 +39,10 @@ if (isset($_POST["search-submit"]) == "search" || isset($_POST["ptn-search-submi
     }
 }
 
-if (isset($_GET['name'])) {
-    $name = $_GET['name'];
+if (isset($_GET['ptn_id'])) {
+    $ptn_id = $_GET['ptn_id'];
 
-    $query = "SELECT * FROM patient WHERE name='$name'";
+    $query = "SELECT * FROM patient WHERE ptn_id='$ptn_id'";
     $result = mysqli_query($dbCon, $query);
     $resultCount = mysqli_num_rows($result);
     $ptnInfo = mysqli_fetch_object($result);
@@ -62,17 +62,17 @@ if (isset($_POST["update-ptn-submit"]) == "update-ptn") {
         $address = "";
     }
 
-    $query = "UPDATE `patient` SET `name`='$name',`dob`='$dob',`phone`='$phone',`gender`='$gender',`address`='$address' WHERE ptn_id='$id'";
+    $query = "UPDATE `patient` SET `name`='$name',`dob`='$dob',`phone`='$phone',`gender`='$gender',`address`='$address' WHERE ptn_id='$ptn_id'";
     $result = @mysqli_query($dbCon, $query) or die("Error in Update: ".mysqli_error($dbCon));
 
     if ($result) {
         $_SESSION['msg'] = "Patient Info Updated";
     }
     else {
-        $_SESSION['msg'] = "Patient Info Updated";
+        $_SESSION['msg'] = "Patient Info Not Updated";
     }
 
-    header("Refresh:0; url=". BASE . "?page=search&&name=$name&&update=$result");
+    header("Refresh:0; url=". BASE . "?page=search&&ptn_id=$ptn_id&&update=$result");
 }
 
 ?>

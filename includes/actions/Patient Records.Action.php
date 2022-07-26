@@ -113,9 +113,9 @@ function bloodPressureCategory($top, $bottom) {
 
         return "High BP Hypertension Stage-1";
     }
-    elseif (($top < 120 && $bottom > 90)
-            || ($bottom < 80 && $top > 140)
-            || ($top > 140 && $bottom > 90)) {
+    elseif (($top < 120 && $bottom >= 90)
+            || ($bottom < 80 && $top >= 140)
+            || ($top >= 140 && $bottom >= 90)) {
 
         return "High BP Hypertension Stage-2";
     }

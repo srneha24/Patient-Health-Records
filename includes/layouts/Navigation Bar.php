@@ -23,7 +23,7 @@
 
         <ul class="nav navbar-nav navbar-right">                    
             <li class="nav-item">
-                <a class="nav-link" href="?page=new" data-toggle="tooltip" data-placement="bottom" title="Log Out">
+                <a class="nav-link" href="?page=new" data-toggle="tooltip" data-placement="bottom" title="New Record">
                     <span class="material-icons">add_card</span>
                     New Record
                 </a>

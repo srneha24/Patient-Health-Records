@@ -104,7 +104,7 @@ function newPtnID() {
         return strval($max + 1);
     }
     else {
-        return strval(1);
+        return strval(1001);
     }
 }
 

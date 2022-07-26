@@ -21,7 +21,7 @@ if (isset($_POST["record-update-submit"]) == "record-update") {
         $_SESSION['msg'] = "Record Updated";
     }
     else {
-        $_SESSION['msg'] = "Record Updated";
+        $_SESSION['msg'] = "Record Not Updated";
     }
 
     header("Refresh:0; url=". BASE . "?page=record&&record_no=$rec_id&&update=$result");
@@ -37,7 +37,7 @@ if (isset($_POST["record-delete-submit"]) == "record-delete") {
         $_SESSION['msg'] = "Record Deleted";
     }
     else {
-        $_SESSION['msg'] = "Record Deleted";
+        $_SESSION['msg'] = "Record Not Deleted";
     }
 
     header('Location: ./includes/actions/Patient Records.Action.php?id=' . $_SESSION['ptnInfo']->ptn_id . '&&delete=$result');
