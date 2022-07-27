@@ -9,7 +9,6 @@ function ShowHideDiv(patientCheck) {
     var gender1 = document.getElementById("gender1");
     var gender2 = document.getElementById("gender2");
     var phone = document.getElementById("phone");
-    var patient_list = document.getElementById("patient-list");
 
     var height = document.getElementById("height");
     var weight = document.getElementById("weight");
